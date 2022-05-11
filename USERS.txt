@@ -1,0 +1,21 @@
+drop database if exists Users;
+create database Users;
+use Users;
+
+create table Users
+(
+	id int primary key auto_increment,
+    nome varchar(50),
+    cognome varchar (50)
+);
+
+insert into Users (nome,cognome) values 
+("Aldo","Baglio"),
+("Carlo","Danti"),
+("Enzo","Franco"),
+("Guido","Itali"),
+("Lino","Marci"),
+("Nando","Ottaviani"),
+("Paolo","Quagli");
+
+select * from users;
