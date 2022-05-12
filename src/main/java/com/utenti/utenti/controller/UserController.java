@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.utenti.utenti.model.Persona;
@@ -28,45 +28,48 @@ public class UserController {
 		return userServices.getUsers();
 	}
 
-	// GET		http://localhost:8080/users/byName?nome= ....
-	@GetMapping("/byName")
-	public List<Persona> getUserByName(@RequestParam String nome){
+	// GET		http://localhost:8080/users/byname/...
+	@GetMapping("/byname/{nome}")
+	public List<Persona> getUserByName(@PathVariable("nome") String nome){
 		return userServices.getUserByName(nome);
 	}
 
-	// GET		http://localhost:8080/users/byId?id= ....
-	@GetMapping("/byId")
-	public Persona getUserById(@RequestParam int id){
+	// GET		http://localhost:8080/users/byid/...
+	@GetMapping("/byid/{id}")
+	public Persona getUserById(@PathVariable("id") int id){
 		return userServices.getUserById(id);
 	}
 
-	// POST		http://localhost:8080/users/create
+	// POST		http://localhost:8080/users
 	/*	BODY
 	 *  {
 		        "nome": "....",
 		        "cognome": "...."
 		    }
 	 */
-	@PostMapping("/create")
+	@PostMapping
 	public void createUser(@RequestBody Persona persona) {
 		userServices.createUser(persona);
 	}
 
-	// DELETE	http://localhost:8080/users/delete?id= ...
-	@DeleteMapping("/delete")
-	public void deleteUser(@RequestParam int id) {
+	// DELETE	http://localhost:8080/users/...
+	@DeleteMapping("/{id}")
+	public void deleteUser(@PathVariable("id") int id) {
+		System.out.println("Sono dentro");
 		userServices.deleteUser(id);
+		System.out.println("Passato");
 	}
 
-	// PUT		http://localhost:8080/users/update?id= ... &
-	/*	BODY
-	 *  {
-	        "nome": "....",
-	        "cognome": "...."
-	    }
-	 */
-	@PutMapping("/update")
-	public void updateUser(@RequestParam int id, @RequestBody Persona persona) {
+	// PUT		http://localhost:8080/users/ ... 
+	//												+
+													/*	BODY
+													 *  {
+													        "nome": "....",
+													        "cognome": "...."
+													    }
+													 */
+	@PutMapping("/{id}")
+	public void updateUser(@PathVariable("id") int id, @RequestBody Persona persona) {
 		userServices.updateUser(id, persona);
 	}
 }
