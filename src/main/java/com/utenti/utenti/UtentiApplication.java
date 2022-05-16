@@ -52,6 +52,17 @@ public class UtentiApplication {
 			Stesso idendico discorso della delete
 			
 	
-			
+		Giorno 3
+		- predisporre una tabella TODO 																		[ OK ]
+		- collegare la tabella TODO con la tabella USERS con una relazione 1-n (1 utente, n todo) 			[ OK ]
+		- sviluppare i seguenti servizi 																	
+		- GET di tutti i todo di 1 utente -> /users/{userid}/todos GET
+		!!!!  ( FUNZIONA IN TODOController in modo alternativo ) 										
+		- Creazione di un todo per uno specifico utente -> /users/{userid}/todos POST 						
+		- Eliminazione di uno specifico todo di un utente -> /users/{userid}/todos/{todoid} DELETE			
+		- Se il TODO ha titolo e descrizione visualizza tutto												
+		- Visualizzare tutti i TODO di un utente (solo lista)												
+		- Se seleziono un TODO ne vedo il contenuto															
+		- Verifica il collegamento tra TODO e Users															
 	 */
 }

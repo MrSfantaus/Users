@@ -6,6 +6,7 @@ public class Persona {
 
 	private int id;
 	private String nome, cognome;
+	private TODO[] todo;
 
 	// Costruttore da Mappe
 	public Persona(Map<String,String> mappa) {		
@@ -46,6 +47,13 @@ public class Persona {
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+	
+	public TODO[] getTodo() {
+		return todo;
+	}
+	public void setTodo(TODO[] todo) {
+		this.todo = todo;
 	}
 
 }

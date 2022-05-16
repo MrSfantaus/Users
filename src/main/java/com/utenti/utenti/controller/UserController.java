@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.utenti.utenti.model.Persona;
+import com.utenti.utenti.model.TODO;
 import com.utenti.utenti.services.UserServices;
 
 @RestController
@@ -22,6 +23,10 @@ public class UserController {
 	@Autowired
 	UserServices userServices;
 
+	@Autowired
+	TODOController todoController;
+	
+	
 	// GET		http://localhost:8080/users
 	@GetMapping
 	public List<Persona> getUsers() {
@@ -72,4 +77,5 @@ public class UserController {
 	public void updateUser(@PathVariable("id") int id, @RequestBody Persona persona) {
 		userServices.updateUser(id, persona);
 	}
+	
 }
