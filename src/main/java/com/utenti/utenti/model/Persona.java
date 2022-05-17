@@ -47,5 +47,5 @@ public class Persona {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
+	
 }

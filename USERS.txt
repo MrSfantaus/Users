@@ -18,4 +18,38 @@ insert into Users (nome,cognome) values
 ("Nando","Ottaviani"),
 ("Paolo","Quagli");
 
+create table TODOS
+(
+	id int primary key auto_increment,
+    titolo varchar(50),
+    descrizione varchar(1000),
+    id_user int,
+    foreign key (id_user) references Users(id) on update cascade on delete cascade
+);
+
+insert into TODOS (titolo,descrizione,id_user) values
+("Uno","Paga",7),
+("Due","Lavora",5),
+("Tre","Studia",6),
+("Quattro","Leggi",4),
+("Cinque","Impara",3),
+("Sei","Salta",1),
+("Sette","Corri",2),
+("Otto","Fuma",1),
+("Nove","Bevi",3),
+("Dieci","Magna",4),
+("Undici","Allenati",2),
+("Dodici","Scrivi",6),
+("Tredici","Lava",5),
+("Quattordici","Sedia",5),
+("Quindici","Quadro",7),
+("Sedici","TV",1),
+("Diciassette","Lampada",3),
+("Diciotto","Esplodi",2),
+("Diciannove","Caffe",4),
+("Venti","Sigaretta",5);
+
 select * from users;
+select * from todos;
+
+select * from users inner join todos on users.id = todos.id_user;
